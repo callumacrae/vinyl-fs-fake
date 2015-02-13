@@ -77,6 +77,38 @@ This is pretty much only useful if you
 [split your gulpfile into multiple files].
 
 
+### vfsFake.src
+
+If you pass in a glob or an array of globs, it will be given to the src method
+of vinyl-fs and returned. Basically, it doesn't change that behaviour.
+
+If you pass in an object representing a file, it'll be turned into a vinyl
+object and piped down the stream. You can also give it a vinyl object directly,
+or an array of objects or vinyl objects.
+
+
+### vfsFake.dest
+
+If you pass in a path, it will be given to the dest method of vinyl-fs and
+returned; again, it doesn't change that behaviour.
+
+However, you can now pass in a function which will be given a `files` array,
+containing all the files piped through:
+
+```js
+	...
+	.pipe(vfsFake.dest(function (files) {
+		console.log(files[2].contents.toString('utf8'));
+	});
+```
+
+It won't touch the files, so you can carry on piping that to other stuff.
+
+You can also give it a stream, if you really want. It'll act like
+`vfsFake.dest` just wasn't called at all, and the stream was just given to
+`.pipe()` directly.
+
+
 ## License
 
 Released under the MIT license.

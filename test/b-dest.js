@@ -5,8 +5,6 @@ var vfsFake = require('../');
 var del = require('del');
 var fs = require('graceful-fs');
 var through = require('through2');
-require('should');
-require('mocha');
 
 var fakeFile = { path: 'fake.txt', contents: new Buffer('hello world') };
 

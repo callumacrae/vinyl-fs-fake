@@ -6,7 +6,6 @@ var path = require('path');
 var File = require('vinyl');
 var should = require('should');
 var through = require('through2');
-require('mocha');
 
 var fakeFiles = [
 	{ path: 'fake.txt', contents: new Buffer('hello world') }

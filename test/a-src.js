@@ -8,7 +8,8 @@ var should = require('should');
 var through = require('through2');
 
 var fakeFiles = [
-	{ path: 'fake.txt', contents: new Buffer('hello world') }
+	{ path: 'fake.txt', contents: new Buffer('hello world') },
+	{ path: 'fake.txt', contents: 'hello world' }
 ];
 
 describe('src', function () {

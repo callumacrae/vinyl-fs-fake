@@ -51,8 +51,8 @@ describe('src', function () {
 		vfsFake.src(fakeFiles)
 			.pipe(through.obj(function (file) {
 				file.path.should.equal(fakeFiles[0].path);
-				file.contents.should.equal(fakeFiles[0].contents);
-
+				file.contents.toString().should.equal(fakeFiles[0].contents.toString());
+				file.base.should.equal(process.cwd());
 				done();
 			}));
 	});
@@ -61,8 +61,8 @@ describe('src', function () {
 		vfsFake.src(fakeFiles[0])
 			.pipe(through.obj(function (file) {
 				file.path.should.equal(fakeFiles[0].path);
-				file.contents.should.equal(fakeFiles[0].contents);
-
+				file.contents.toString().should.equal(fakeFiles[0].contents.toString());
+				file.base.should.equal(process.cwd());
 				done();
 			}));
 	});
@@ -72,7 +72,7 @@ describe('src', function () {
 			.pipe(through.obj(function (file) {
 				file.path.should.equal(fakeFiles[0].path);
 				file.contents.should.equal(fakeFiles[0].contents);
-
+				file.base.should.equal(process.cwd());
 				done();
 			}));
 	});

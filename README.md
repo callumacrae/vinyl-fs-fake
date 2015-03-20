@@ -86,6 +86,8 @@ If you pass in an object representing a file, it'll be turned into a vinyl
 object and piped down the stream. You can also give it a vinyl object directly,
 or an array of objects or vinyl objects.
 
+In addition to the options accepted by the Vinyl file constructor, you can pass
+the file content as a string, in which case it will be bufferized for you.
 
 ### vfsFake.dest
 

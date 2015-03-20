@@ -56,6 +56,7 @@ describe('src', function () {
 				file.path.should.equal(fakePath);
 				file.contents.toString().should.equal(fakeContent);
 				file.base.should.equal(process.cwd());
+				file.cwd.should.equal(process.cwd());
 				done();
 			}));
 	});
@@ -66,6 +67,7 @@ describe('src', function () {
 				file.path.should.equal(fakePath);
 				file.contents.toString().should.equal(fakeContent);
 				file.base.should.equal(process.cwd());
+				file.cwd.should.equal(process.cwd());
 				done();
 			}));
 	});
@@ -78,6 +80,7 @@ describe('src', function () {
 				file.path.should.equal(fakePath);
 				file.contents.toString().should.equal('');
 				file.base.should.equal(process.cwd());
+				file.cwd.should.equal(process.cwd());
 				done();
 			}));
 	});
@@ -88,6 +91,7 @@ describe('src', function () {
 				file.path.should.equal(fakePath);
 				file.contents.toString().should.equal(fakeContent);
 				file.base.should.equal(process.cwd());
+				file.cwd.should.equal(process.cwd());
 				done();
 			}));
 	});

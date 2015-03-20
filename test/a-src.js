@@ -7,9 +7,12 @@ var File = require('vinyl');
 var should = require('should');
 var through = require('through2');
 
+var fakeContent = 'hello world';
+var fakePath = 'fake.txt';
+
 var fakeFiles = [
-	{ path: 'fake.txt', contents: new Buffer('hello world') },
-	{ path: 'fake.txt', contents: 'hello world' }
+	{ path: fakePath, contents: new Buffer(fakeContent) },
+	{ path: fakePath, contents: fakeContent }
 ];
 
 describe('src', function () {
@@ -50,8 +53,8 @@ describe('src', function () {
 	it('should accept arrays of file objects', function (done) {
 		vfsFake.src(fakeFiles)
 			.pipe(through.obj(function (file) {
-				file.path.should.equal(fakeFiles[0].path);
-				file.contents.toString().should.equal(fakeFiles[0].contents.toString());
+				file.path.should.equal(fakePath);
+				file.contents.toString().should.equal(fakeContent);
 				file.base.should.equal(process.cwd());
 				done();
 			}));
@@ -60,8 +63,20 @@ describe('src', function () {
 	it('should accept file objects', function (done) {
 		vfsFake.src(fakeFiles[0])
 			.pipe(through.obj(function (file) {
-				file.path.should.equal(fakeFiles[0].path);
-				file.contents.toString().should.equal(fakeFiles[0].contents.toString());
+				file.path.should.equal(fakePath);
+				file.contents.toString().should.equal(fakeContent);
+				file.base.should.equal(process.cwd());
+				done();
+			}));
+	});
+
+	it('should accept file objects with no content', function (done) {
+		vfsFake.src({
+			path: fakePath
+		})
+			.pipe(through.obj(function (file) {
+				file.path.should.equal(fakePath);
+				file.contents.toString().should.equal('');
 				file.base.should.equal(process.cwd());
 				done();
 			}));
@@ -70,8 +85,8 @@ describe('src', function () {
 	it('should accept vinyl objects', function (done) {
 		vfsFake.src(new File(fakeFiles[0]))
 			.pipe(through.obj(function (file) {
-				file.path.should.equal(fakeFiles[0].path);
-				file.contents.should.equal(fakeFiles[0].contents);
+				file.path.should.equal(fakePath);
+				file.contents.toString().should.equal(fakeContent);
 				file.base.should.equal(process.cwd());
 				done();
 			}));

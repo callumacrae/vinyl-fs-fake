@@ -5,7 +5,6 @@ var vfsFake = require('../');
 var path = require('path');
 var File = require('vinyl');
 var should = require('should');
-var assert = require('assert');
 var through = require('through2');
 
 var fakeContent = 'hello world';
@@ -80,8 +79,7 @@ describe('src', function () {
 			.pipe(through.obj(function (file) {
 				file.path.should.equal(fakePath);
 
-				// can't use .should.equal on null!
-				assert.equal(file.contents, null);
+				should.equal(file.contents, null);
 				file.base.should.equal(process.cwd());
 				file.cwd.should.equal(process.cwd());
 				done();

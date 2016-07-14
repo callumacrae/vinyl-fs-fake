@@ -26,7 +26,7 @@
   "homepage": "https://github.com/callumacrae/vinyl-fs-fake",
   "dependencies": {
     "through2": "^0.6.3",
-    "vinyl": "^0.4.6",
+    "vinyl": "^1.1.1",
     "vinyl-fs": "^0.3.13"
   },
   "devDependencies": {

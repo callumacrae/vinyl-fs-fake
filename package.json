@@ -27,12 +27,12 @@
   "dependencies": {
     "through2": "^0.6.3",
     "vinyl": "^0.4.6",
-    "vinyl-fs": "^0.3.13"
+    "vinyl-fs": "^2.4.4"
   },
   "devDependencies": {
-    "del": "^1.1.1",
+    "del": "^1.2.1",
     "graceful-fs": "^3.0.5",
-    "mocha": "^2.1.0",
+    "mocha": "^5.2.0",
     "should": "^5.0.0"
   }
 }

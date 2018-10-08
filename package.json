@@ -18,7 +18,10 @@
     "mock",
     "test"
   ],
-  "author": "Callum Macrae <callum@macr.ae>",
+  "authors": [
+    "Callum Macrae <callum@macr.ae>",
+    "Níckolas Goline <nickolas.goline@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/callumacrae/vinyl-fs-fake/issues"
